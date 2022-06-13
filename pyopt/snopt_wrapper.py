@@ -54,6 +54,7 @@ def solve_snopt(prog, options=None, run_name=None):
         for cost, idxs in zip(prog.costs, cost_indices):
             vars = [x[idx] for idx in idxs]
             cost_val += cost.eval(*vars)
+        F[0] = cost_val
 
         constraint_start_idx = 1
         for i, constraint in enumerate(prog.constraints):

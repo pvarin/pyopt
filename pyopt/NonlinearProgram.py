@@ -34,7 +34,6 @@ def make_variables(name, shape, initial_guess=None, lb=None, ub=None):
 
 
 class NonlinearProgram:
-
     def __init__(self):
         self.variables = []
         self.costs = []
@@ -132,7 +131,6 @@ class NonlinearProgram:
 
 
 class Cost:
-
     def __init__(self, name, variables, coeff=1.0):
         self.name = name
         self.variables = variables
@@ -152,7 +150,6 @@ class Cost:
 
 
 class Constraint:
-
     def __init__(self, name, variables, lb, ub):
         self.name = name
         self.variables = variables

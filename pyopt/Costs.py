@@ -7,7 +7,6 @@ def wrap_angle(theta):
 
 
 class QuadraticCost(Cost):
-
     def __init__(self, name, variables, Q):
         super().__init__(name, variables)
         self.Q = Q
@@ -20,7 +19,6 @@ class QuadraticCost(Cost):
 
 
 class SquaredNormCost(Cost):
-
     def __init__(self, name, variables, coeff):
         super().__init__(name, variables)
         self.coeff = coeff
@@ -33,7 +31,6 @@ class SquaredNormCost(Cost):
 
 
 class TipPoseErrorCost(Cost):
-
     def __init__(self, name, variables, coeff, model, desired_pose):
         super().__init__(name, variables)
         self.coeff = coeff

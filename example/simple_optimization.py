@@ -1,3 +1,4 @@
+import pdb
 import numpy as np
 from pyopt.NonlinearProgram import NonlinearProgram, make_variables
 from pyopt.Costs import QuadraticCost
@@ -11,7 +12,7 @@ y = prog.new_variables('y', (4, ))
 
 # Add an arbitrary PSD cost.
 L = np.random.random((4, 4))
-Q = L.transpose().dot(L)
+Q = L.transpose().dot(L) + 1e-2 * np.eye(4)
 cost = QuadraticCost('my_cost', [y], Q)
 prog.add_cost(cost)
 
@@ -31,7 +32,7 @@ y_val = prog.get_solution_value(y, result.x)
 
 # Verify that the cost matches the result objective.
 cost_val = cost.eval(y_val)
-assert (np.isclose(result.objective, cost_val))
+np.testing.assert_almost_equal(result.objective, cost_val)
 
 # Verify that the constraints are satisfied.
 eps = 1e-6  # epsilon for solver tolerance
